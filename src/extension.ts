@@ -5,8 +5,6 @@ import * as path from 'path';
 
 export function activate(context: ExtensionContext) {
 
-    console.log('"Active File Status" is now active!');
-
     let activeFile = new ActiveFile();
     let controller = new ActiveFileController(activeFile);
 
@@ -37,6 +35,10 @@ class ActiveFile {
         }
 
         var filePath = editor.document.fileName;
+        if (!path.isAbsolute(filePath)) {
+            // Active editor is probably OUTPUT or DEBUG CONSOLE, so ignore
+            return;
+        }
         if (filePath.indexOf(workspace.rootPath) == 0) {
             filePath = path.relative(workspace.rootPath, filePath);
         }
