@@ -9,6 +9,7 @@
         "url": "https://github.com/sgtsquiggs/vscode-active-file-status"
     },
     "bugs": "https://github.com/sgtsquiggs/vscode-active-file-status/issues",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.5.0"
     },
